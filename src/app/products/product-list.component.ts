@@ -3,7 +3,8 @@ import { IProduct } from './product.interface'
 
 @Component({
     selector: "product-list",
-    templateUrl: "./product-list.component.html"
+    templateUrl: "./product-list.component.html",
+    styleUrls: ["./product-list.component.css"]
 })
 export class ProductListComponent {
     title: string = "Products";
