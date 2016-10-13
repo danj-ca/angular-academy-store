@@ -1,5 +1,4 @@
-import { FavouritesService } from './favourites.service';
-import { IProduct } from './product.interface';
+import { FavouritesService, IProduct } from './';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({

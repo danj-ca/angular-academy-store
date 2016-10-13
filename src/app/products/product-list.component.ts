@@ -1,7 +1,5 @@
-import { FavouritesService } from './favourites.service';
-import { ProductService } from './product.service';
+import { FavouritesService, ProductService, IProduct } from './';
 import { Component, OnInit } from '@angular/core';
-import { IProduct } from './product.interface'
 
 @Component({
     selector: "product-list",
