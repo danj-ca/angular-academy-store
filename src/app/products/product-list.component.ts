@@ -9,6 +9,7 @@ import { IProduct } from './product.interface'
 export class ProductListComponent {
     title: string = "Products";
     products: IProduct[];
+    selectedProduct: IProduct;
 
     constructor() {
         this.products = [
@@ -48,5 +49,9 @@ export class ProductListComponent {
                 modifiedDate: new Date('2016-05-17')
             }
         ];
+    }
+
+    onSelect(product: IProduct) {
+        this.selectedProduct = product;
     }
 }

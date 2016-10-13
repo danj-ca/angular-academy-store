@@ -1,5 +1,5 @@
 import { IProduct } from './product.interface';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
     /* moduleId: module.id, - this is only needed if using System.js,
@@ -9,8 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductDetailComponent implements OnInit {
     /* This reminds me of models in MVVM... I suppose components
-        are a little like VMs? */
-    product: IProduct;
+        are a little like VMs?
+
+        Note - Input is needed if we want to be able to 
+        property bind to product
+    */
+    @Input() product: IProduct;
 
     constructor() { }
 

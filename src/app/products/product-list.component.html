@@ -5,9 +5,11 @@
         not on its container
     -->
     <li *ngFor="let product of products"
-        [class.discontinued]="product.discontinued">
+        [class.discontinued]="product.discontinued"
+        (click)="onSelect(product)">
         <span class="name">{{ product.name }}</span>
         {{ product.description }}
         <span class="price">{{ product.price | currency:'CAD':true:'.2' }}</span>
     </li>
 </ul>
+<product-detail [product]="selectedProduct"></product-detail>
