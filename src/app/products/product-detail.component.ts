@@ -1,3 +1,4 @@
+import { FavouritesService } from './favourites.service';
 import { IProduct } from './product.interface';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
@@ -17,7 +18,7 @@ export class ProductDetailComponent implements OnInit {
     @Input() product: IProduct;
     @Output() favourited: EventEmitter<IProduct> = new EventEmitter<IProduct>();
 
-    constructor() { }
+    constructor(private _favouritesService: FavouritesService) { }
 
     ngOnInit() { }
 
@@ -29,7 +30,12 @@ export class ProductDetailComponent implements OnInit {
 
            Note - Generic type of favourited specific the type of 
            argument expected by emit().
+
+           Note - We can still emit an event, for example so a message
+           can be displayed, although that might also be more appropriate
+           to live in the FavouritesService...
         */
         this.favourited.emit(this.product);
+        this._favouritesService.addFavourite(this.product);
     }
 }

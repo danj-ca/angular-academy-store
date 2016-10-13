@@ -1,4 +1,4 @@
-<h2>{{ title }}</h2>
+<h2>{{ title }} <span *ngIf="favouritesCount > 0">{{ favouritesCount }} faves</span></h2>
 <p *ngIf="message">{{ message }}</p>
 <ul class="products">
     <!--
@@ -20,4 +20,4 @@
 <product-detail 
     *ngIf="selectedProduct" 
     [product]="selectedProduct"
-    (favourited)="addFavourite($event)"></product-detail>
+    (favourited)="favouriteAdded($event)"></product-detail>

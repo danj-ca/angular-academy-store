@@ -1,3 +1,4 @@
+import { FavouritesService } from './favourites.service';
 import { ProductService } from './product.service';
 import { Component, OnInit } from '@angular/core';
 import { IProduct } from './product.interface'
@@ -6,7 +7,7 @@ import { IProduct } from './product.interface'
     selector: "product-list",
     templateUrl: "./product-list.component.html",
     styleUrls: ["./product-list.component.css"],
-    providers: [ProductService]
+    providers: [ProductService, FavouritesService]
 })
 export class ProductListComponent implements OnInit {
     title: string = "Products";
@@ -14,7 +15,8 @@ export class ProductListComponent implements OnInit {
     selectedProduct: IProduct;
     message: string;
     
-    constructor(private _productService: ProductService) {
+    constructor(private _productService: ProductService,
+                private _favouritesService: FavouritesService) {
         /* Don't access services in the constructor! 
            Who knows what they're doing.
            This is what an init event is for. 
@@ -26,11 +28,15 @@ export class ProductListComponent implements OnInit {
         this.selectedProduct = product;
     }
 
-    addFavourite(product: IProduct) {
+    favouriteAdded(product: IProduct) {
         this.message = `Product ${product.name} added to favourites!`;
     }
 
     ngOnInit() {
         this.products = this._productService.getProducts();
+    }
+
+    get favouritesCount() : number {
+        return this._favouritesService.favouritesCount;
     }
 }
