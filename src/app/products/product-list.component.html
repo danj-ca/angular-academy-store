@@ -1,4 +1,5 @@
 <h2>{{ title }}</h2>
+<p *ngIf="message">{{ message }}</p>
 <ul class="products">
     <!--
         note that the ngFor directive appears on the element that should be repeated,
@@ -13,4 +14,8 @@
         <span class="price">{{ product.price | currency:'CAD':true:'.2' }}</span>
     </li>
 </ul>
-<product-detail *ngIf="selectedProduct" [product]="selectedProduct"></product-detail>
+<!-- Note the $event being passed to addFavourite; that's an internal angular variable -->
+<product-detail 
+    *ngIf="selectedProduct" 
+    [product]="selectedProduct"
+    (favourited)="addFavourite($event)"></product-detail>

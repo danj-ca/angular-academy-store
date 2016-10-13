@@ -3,3 +3,4 @@
 <p>{{ product.price | currency:'CAD':true:'.2' }}</p>
 <p>Last Modified: {{ product.modifiedDate | date:mediumDate }}</p>
 <p *ngIf="product.discontinued">DISCONTINUED</p>
+<p><button (click)="addToFavourites()">Add to favourites</button></p>

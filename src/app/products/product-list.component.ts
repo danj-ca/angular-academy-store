@@ -10,6 +10,7 @@ export class ProductListComponent {
     title: string = "Products";
     products: IProduct[];
     selectedProduct: IProduct;
+    message: string;
     
     constructor() {
         this.products = [
@@ -53,5 +54,9 @@ export class ProductListComponent {
 
     onSelect(product: IProduct) {
         this.selectedProduct = product;
+    }
+
+    addFavourite(product: IProduct) {
+        this.message = `Product ${product.name} added to favourites!`;
     }
 }
