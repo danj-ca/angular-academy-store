@@ -1,55 +1,25 @@
-import { Component } from '@angular/core';
+import { ProductService } from './product.service';
+import { Component, OnInit } from '@angular/core';
 import { IProduct } from './product.interface'
 
 @Component({
     selector: "product-list",
     templateUrl: "./product-list.component.html",
-    styleUrls: ["./product-list.component.css"]
+    styleUrls: ["./product-list.component.css"],
+    providers: [ProductService]
 })
-export class ProductListComponent {
+export class ProductListComponent implements OnInit {
     title: string = "Products";
     products: IProduct[];
     selectedProduct: IProduct;
     message: string;
     
-    constructor() {
-        this.products = [
-            {
-                name: 'Trek SSL 2015',
-                price: 999.9,
-                description: 'Racing bike.',
-                discontinued: false,
-                modifiedDate: new Date('2016-05-08')
-            },
-            {
-                name: 'City XT 2015',
-                price: 659.5,
-                description: 'City bike.',
-                discontinued: true,
-                modifiedDate: new Date('2016-04-09')
-            },
-            {
-                name: 'Cosmic Cobat 2015',
-                price: 499.9,
-                description: 'Great bike.',
-                discontinued: false,
-                modifiedDate: new Date('2016-07-12')
-            },
-            {
-                name: 'Hero DTB 2016',
-                price: 759,
-                description: 'Champion bike.',
-                discontinued: false,
-                modifiedDate: new Date('2016-06-10')
-            },
-            {
-                name: 'CS-WORKS 2016',
-                price: 1299.9,
-                description: 'Ultra bike.',
-                discontinued: false,
-                modifiedDate: new Date('2016-05-17')
-            }
-        ];
+    constructor(private _productService: ProductService) {
+        /* Don't access services in the constructor! 
+           Who knows what they're doing.
+           This is what an init event is for. 
+        */
+        //this.products = this._productService.getProducts();
     }
 
     onSelect(product: IProduct) {
@@ -58,5 +28,9 @@ export class ProductListComponent {
 
     addFavourite(product: IProduct) {
         this.message = `Product ${product.name} added to favourites!`;
+    }
+
+    ngOnInit() {
+        this.products = this._productService.getProducts();
     }
 }
