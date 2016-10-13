@@ -12,4 +12,4 @@
         <span class="price">{{ product.price | currency:'CAD':true:'.2' }}</span>
     </li>
 </ul>
-<product-detail [product]="selectedProduct"></product-detail>
+<product-detail *ngIf="selectedProduct" [product]="selectedProduct"></product-detail>
