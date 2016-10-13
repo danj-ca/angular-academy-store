@@ -8,8 +8,8 @@
     "module": "es6",
     "moduleResolution": "node",
     "outDir": "../dist/out-tsc",
-    "sourceMap": true,
-    "target": "es5",
+    "sourceMap": true, /* lets you debug ts instead of underlying js */
+    "target": "es5", /* transpile target */
     "typeRoots": [
       "../node_modules/@types"
     ]
