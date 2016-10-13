@@ -8,6 +8,6 @@
         [class.discontinued]="product.discontinued">
         <span class="name">{{ product.name }}</span>
         {{ product.description }}
-        <span class="price">{{ product.price }}</span>
+        <span class="price">{{ product.price | currency:'CAD':true:'.2' }}</span>
     </li>
 </ul>
