@@ -38,4 +38,8 @@ export class ProductDetailComponent implements OnInit {
         this.favourited.emit(this.product);
         this._favouritesService.addFavourite(this.product);
     }
+
+    get isFavourite() : boolean {
+        return this._favouritesService.isFavourite(this.product);
+    }
 }

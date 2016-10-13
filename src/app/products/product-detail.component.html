@@ -10,4 +10,10 @@
 <p>{{ product.price | currency:'CAD':true:'.2' }}</p>
 <p>Last Modified: {{ product.modifiedDate | date:mediumDate }}</p>
 <p><input type="checkbox" [(ngModel)]="product.discontinued"/> Discontinued</p>
-<p><button (click)="addToFavourites()">Add to favourites</button></p>
+<p>
+    <button
+        (click)="addToFavourites()"
+        [disabled]="product.isFavourite">
+        Add to favourites
+    </button>
+</p>

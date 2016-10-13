@@ -5,13 +5,13 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class FavouritesService {
 
-    favourites: IProduct[] = [];
+    favourites: Set<IProduct> = new Set();
 
     constructor() { }
 
     addFavourite(product: IProduct) {
         // TODO use a set instead of an array
-        this.favourites.push(product);
+        this.favourites.add(product);
     }
 
     // TODO Can we implement a remove method?
@@ -19,6 +19,10 @@ export class FavouritesService {
     // Note - this is typescript's property getter syntax
     // Get in the habit of adding the return type annotation
     get favouritesCount() : number {
-        return this.favourites.length;
+        return this.favourites.size;
+    }
+
+    isFavourite(product: IProduct) : boolean {
+        return this.favourites.has(product);
     }
 }
