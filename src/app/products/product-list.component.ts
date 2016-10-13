@@ -10,7 +10,7 @@ export class ProductListComponent {
     title: string = "Products";
     products: IProduct[];
     selectedProduct: IProduct;
-
+    
     constructor() {
         this.products = [
             {

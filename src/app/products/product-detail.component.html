@@ -1,4 +1,4 @@
-<h3>{{ product.name }}</h3>
+<h3>{{ product.name | uppercase }}</h3>
 <p>{{ product.description }}</p>
 <p>{{ product.price | currency:'CAD':true:'.2' }}</p>
 <p>Last Modified: {{ product.modifiedDate | date:mediumDate }}</p>

@@ -6,8 +6,9 @@
     -->
     <li *ngFor="let product of products"
         [class.discontinued]="product.discontinued"
+        [class.selected]="product === selectedProduct"
         (click)="onSelect(product)">
-        <span class="name">{{ product.name }}</span>
+        <span class="name">{{ product.name | uppercase }}</span>
         {{ product.description }}
         <span class="price">{{ product.price | currency:'CAD':true:'.2' }}</span>
     </li>
