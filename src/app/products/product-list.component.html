@@ -14,7 +14,9 @@
         <span class="price">{{ product.price | currency:'CAD':true:'.2' }}</span>
     </li>
 </ul>
-<!-- Note the $event being passed to addFavourite; that's an internal angular variable -->
+<!-- Note the $event being passed to addFavourite; 
+     that's an internal angular variable representing
+     the event argument. -->
 <product-detail 
     *ngIf="selectedProduct" 
     [product]="selectedProduct"

@@ -1,6 +1,13 @@
 <h3>{{ product.name | uppercase }}</h3>
 <p>{{ product.description }}</p>
+<p>Edit price:
+        <!-- Note - That ngModel directive creates an Angular 
+             FormControl and binds it to the HTML element.
+             The control handles binding and validation for
+             the specified model (product.price in this case).-->
+        <input type="number" [(ngModel)]="product.price" />
+</p>
 <p>{{ product.price | currency:'CAD':true:'.2' }}</p>
 <p>Last Modified: {{ product.modifiedDate | date:mediumDate }}</p>
-<p *ngIf="product.discontinued">DISCONTINUED</p>
+<p><input type="checkbox" [(ngModel)]="product.discontinued"/> Discontinued</p>
 <p><button (click)="addToFavourites()">Add to favourites</button></p>
