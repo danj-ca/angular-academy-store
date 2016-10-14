@@ -6,12 +6,14 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { ProductListComponent } from './products/product-list.component'
 import { ProductDetailComponent } from './products/product-detail.component';
+import { OrderBy } from './shared/';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductListComponent,
-    ProductDetailComponent
+    ProductDetailComponent,
+    OrderBy
   ],
   imports: [
     BrowserModule,

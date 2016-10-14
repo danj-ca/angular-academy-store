@@ -12,6 +12,7 @@ export class ProductListComponent implements OnInit {
     products: IProduct[];
     selectedProduct: IProduct;
     message: string;
+    sorter: string = "price";
     
     constructor(private _productService: ProductService,
                 private _favouritesService: FavouritesService) {

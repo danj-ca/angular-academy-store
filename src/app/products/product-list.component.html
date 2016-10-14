@@ -5,7 +5,7 @@
         note that the ngFor directive appears on the element that should be repeated,
         not on its container
     -->
-    <li *ngFor="let product of products"
+    <li *ngFor="let product of products | orderBy:[sorter]"
         [class.discontinued]="product.discontinued"
         [class.selected]="product === selectedProduct"
         (click)="onSelect(product)">
