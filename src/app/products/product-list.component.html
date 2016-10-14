@@ -7,10 +7,12 @@
         not on its container
 
         note: async pipe unpacks the observable collection
-        
+              ...this feels weird to me, why should your template
+              be required to understand observability?
+
         note: could add a slice pipe to implement pagination!
     -->
-    <li *ngFor="let product of products$ | async | orderBy:[sorter]"
+    <li *ngFor="let product of products | orderBy:[sorter]"
         [class.discontinued]="product.discontinued"
         [class.selected]="product === selectedProduct"
         (click)="onSelect(product)">
