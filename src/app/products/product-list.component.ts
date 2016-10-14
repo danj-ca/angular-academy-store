@@ -31,7 +31,11 @@ export class ProductListComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.products = this._productService.getProducts();
+        this._productService.getProducts()
+                .subscribe(
+                    data => this.products = data,
+                    error => console.log(error)
+                );
     }
 
     get favouritesCount() : number {
