@@ -1,3 +1,4 @@
+import { routing } from './products.routing';
 import { OrderBy } from './orderBy.pipe';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
@@ -8,7 +9,8 @@ import { NgModule } from '@angular/core';
 @NgModule({
     imports: [
         CommonModule,
-        FormsModule
+        FormsModule,
+        routing
     ],
     exports: [
         ProductListComponent

@@ -4,5 +4,5 @@
 export { FavouritesService } from './favourites.service'
 export { ProductService } from './product.service'
 export { IProduct } from './product.interface'
-export { ProductListComponent } from './product-list.component'
+//export { ProductListComponent } from './product-list.component'
 //export { ProductDetailComponent } from './product-detail.component'
