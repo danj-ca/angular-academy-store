@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs/Observable';
 import { FavouritesService, ProductService, IProduct } from './';
 import { Component, OnInit } from '@angular/core';
 
@@ -10,6 +11,8 @@ import { Component, OnInit } from '@angular/core';
 export class ProductListComponent implements OnInit {
     title: string = "Products";
     products: IProduct[];
+    products$: Observable<IProduct[]>; //Note $ suffic naming convention 
+                                       //for Observables
     selectedProduct: IProduct;
     message: string;
     sorter: string = "price";
@@ -33,11 +36,12 @@ export class ProductListComponent implements OnInit {
     }
 
     ngOnInit() {
-        this._productService.getProducts()
-                .subscribe(
-                    data => this.products = data,
-                    error => console.log(error)
-                );
+        this.products$ = this._productService.getProducts();
+        // this._productService.getProducts()
+        //         .subscribe(
+        //             data => this.products = data,
+        //             error => console.log(error)
+        //         );
     }
 
     get favouritesCount() : number {

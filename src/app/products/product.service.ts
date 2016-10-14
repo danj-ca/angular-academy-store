@@ -7,7 +7,7 @@ import 'rxjs/Rx';
 @Injectable()
 export class ProductService {
 
-    productsEndpoint: string = "http://storerestservice.azurewebsites.net/api/products/";
+    private productsEndpoint: string = "http://storerestservice.azurewebsites.net/api/products/";
 
     constructor(private _http: Http) { }
 
