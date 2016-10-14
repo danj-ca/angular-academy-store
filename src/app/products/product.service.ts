@@ -8,12 +8,28 @@ import 'rxjs/Rx';
 export class ProductService {
 
     private productsEndpoint: string = "http://storerestservice.azurewebsites.net/api/products/";
+    private products: IProduct[];
 
     constructor(private _http: Http) { }
 
-    getProducts(): Observable<IProduct[]> {
-        return this._http
-                   .get(this.productsEndpoint)
-                   .map((r:Response) => r.json());
+    // Note - I'm still not sure about this return type annotation...
+    getProducts(): Observable<IProduct[] | any> {
+        if (this.products) {
+            // Return from local cache
+            return Observable.of(this.products);
+        } else {
+            return this._http
+                    .get(this.productsEndpoint)
+                    .map((r:Response) => {
+                            this.products = r.json();
+                            return this.products;
+                        })
+                    .catch(this.handleErrors);
+        }
+    }
+
+    handleErrors(error) {
+        console.log(error);
+        return Observable.throw(error);
     }
 }
