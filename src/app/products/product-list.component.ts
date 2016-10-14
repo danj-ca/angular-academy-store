@@ -13,6 +13,7 @@ export class ProductListComponent implements OnInit {
     selectedProduct: IProduct;
     message: string;
     sorter: string = "price";
+    desc: boolean;
     
     constructor(private _productService: ProductService,
                 private _favouritesService: FavouritesService) {
@@ -43,7 +44,7 @@ export class ProductListComponent implements OnInit {
         return this._favouritesService.favouritesCount;
     }
 
-    toggleSort() {
+    toggleSortDirection() {
         if (this.sorter.substring(0, 1) === '-')
         {
             this.sorter = this.sorter.substring(1);
@@ -52,5 +53,12 @@ export class ProductListComponent implements OnInit {
         {
             this.sorter = `-${this.sorter}`;
         }
+    }
+
+    get sortDescending() : boolean {
+        return this.desc;
+    }
+    set sortDescending(desc:boolean) {
+        this.desc = desc;
     }
 }

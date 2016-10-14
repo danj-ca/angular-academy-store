@@ -5,6 +5,8 @@
     <!--
         note that the ngFor directive appears on the element that should be repeated,
         not on its container
+
+        note: could add a slice pipe to implement pagination!
     -->
     <li *ngFor="let product of products | orderBy:[sorter]"
         [class.discontinued]="product.discontinued"

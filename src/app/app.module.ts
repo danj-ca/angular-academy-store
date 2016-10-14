@@ -6,7 +6,7 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { ProductListComponent } from './products/product-list.component'
 import { ProductDetailComponent } from './products/product-detail.component';
-import { OrderBy } from './shared/';
+import { OrderBy, SortDirection } from './shared/';
 
 @NgModule({
   declarations: [
