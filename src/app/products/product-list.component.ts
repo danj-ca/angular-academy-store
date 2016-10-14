@@ -42,4 +42,15 @@ export class ProductListComponent implements OnInit {
     get favouritesCount() : number {
         return this._favouritesService.favouritesCount;
     }
+
+    toggleSort() {
+        if (this.sorter.substring(0, 1) === '-')
+        {
+            this.sorter = this.sorter.substring(1);
+        }
+        else
+        {
+            this.sorter = `-${this.sorter}`;
+        }
+    }
 }

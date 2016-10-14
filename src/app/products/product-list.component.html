@@ -1,5 +1,6 @@
 <h2>{{ title }} <span *ngIf="favouritesCount > 0">{{ favouritesCount }} faves</span></h2>
 <p *ngIf="message">{{ message }}</p>
+<p><button (click)="toggleSort()">Toggle Sort Order</button></p>
 <ul class="products">
     <!--
         note that the ngFor directive appears on the element that should be repeated,
