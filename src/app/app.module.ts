@@ -1,3 +1,5 @@
+import { ContactComponent } from './shared/contact.component';
+import { HomeComponent } from './shared/home.component';
 import { ProductsModule } from './products/products.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -8,7 +10,9 @@ import { AppComponent } from './app.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
